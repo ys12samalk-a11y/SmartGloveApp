@@ -1,0 +1,20 @@
+[tool.briefcase]
+project_name = "SmartGloveApp"
+bundle = "org.smartglove"
+version = "0.1.0"
+url = "https://github.com/ys12samalk-a11y/SmartGloveApp"
+license = "MIT"
+
+[tool.briefcase.app.smartgloveapp]
+formal_name = "Smart Glove App"
+description = "Smart Glove for Currency Recognition"
+sources = ["."]
+test_sources = ["tests"]
+requires = ["kivy", "requests", "pillow", "numpy", "tflite-runtime"]
+icon = "icon"
+splash = "splash"
+long_description = "Smart Glove for Currency Recognition"
+
+[tool.briefcase.app.smartgloveapp.android]
+requires = ["python3", "kivy", "requests", "pillow", "numpy", "tflite-runtime"]
+android_manifest_extra = 'android.permission.INTERNET'
