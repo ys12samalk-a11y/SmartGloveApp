@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK with Briefcase
 
 on:
   push:
@@ -20,15 +20,17 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses-dev libncursesw5-dev cmake libffi-dev libssl-dev
-        pip install buildozer cython
+        sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev
+        pip install briefcase
     
     - name: Build APK
       run: |
-        buildozer -v android debug
+        briefcase create android
+        briefcase build android
+        briefcase package android -p apk
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: SmartGloveApp-APK
-        path: bin/*.apk
+        path: dist/*.apk
