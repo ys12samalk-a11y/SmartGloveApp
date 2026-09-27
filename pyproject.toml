@@ -8,7 +8,7 @@ license = "MIT"
 [tool.briefcase.app.smartgloveapp]
 formal_name = "Smart Glove App"
 description = "Smart Glove for Currency Recognition"
-sources = ["."]
+sources = ["smartgloveapp"]
 test_sources = ["tests"]
 requires = ["kivy", "requests", "pillow", "numpy", "tflite-runtime"]
 icon = "icon"
